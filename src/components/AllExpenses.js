@@ -1,12 +1,13 @@
 import Expense from "./Expense";
 import './AllExpenses.css';
+import Card from "./Card";
 
 function AllExpenses({ expenses }) {
 
     return (
-    <div className="all-expenses">
+    <Card className="all-expenses">
         {expenses.map((i) => <Expense key={i.id} expense={i}></Expense>)}
-    </div>
+    </Card>
 
     );
 }
