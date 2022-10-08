@@ -5,6 +5,7 @@ import Card from './Card';
 function Expense ({expense}) {
 
     return (
+        <li>
         <Card className="expense-item">
             <ExpenseDate expense={expense}></ExpenseDate>
             <div className="expense-item__description">
@@ -12,6 +13,7 @@ function Expense ({expense}) {
                 <div className="expense-item__price">{expense.amount}</div>
             </div>
         </Card>
+        </li>
     )
 
 }

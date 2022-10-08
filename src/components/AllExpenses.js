@@ -1,23 +1,22 @@
 import React, {useState} from "react";
-import Expense from "./Expense";
+import ExpensesList from "./ExpensesList";
 import './AllExpenses.css';
 import Card from "./Card";
 import ExpenseFilter from "./ExpenseFilter";
 
 function AllExpenses({ expenses }) {
-const [chosenYear, setChosenYaer] = useState('');
+const [chosenYear, setChosenYear] = useState('');
+const filteredExpenses = expenses.filter((i) => i.date.getFullYear().toString() === chosenYear)
 
     function getExpenseYear (year) {
-        setChosenYaer(year)
+        setChosenYear(year)
     }
-
-    console.log(chosenYear)
 
     return (
         <div>
-            <ExpenseFilter getExpenseYear={getExpenseYear}/>
             <Card className="all-expenses">
-                {expenses.map((i) => <Expense key={i.id} expense={i}></Expense>)}
+            <ExpenseFilter getExpenseYear={getExpenseYear}/>
+            <ExpensesList filteredExpenses={filteredExpenses}/>
             </Card>
         </div>
 

@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './ExpenseFilter.css';
 
 const ExpenseFilter = ({getExpenseYear}) => {
-const [year, setYear] = useState(chooseNumber())
+const [year, setYear] = useState('2022');
+
+useEffect(() => {
+    getExpenseYear(year)
+}, [year])
 
 function chooseNumber (e) {
     setYear(e.target.value)
-    getExpenseYear(e.target.value)
 }
 
   return (
